@@ -1,0 +1,28 @@
+.todos-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+
+  .max-width-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    max-width: 900px;
+    flex-wrap: wrap;
+
+    .todo-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(black, 0.4);
+      border-radius: 100px;
+
+      .check-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

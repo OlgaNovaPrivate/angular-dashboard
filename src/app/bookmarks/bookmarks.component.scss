@@ -1,0 +1,19 @@
+.bookmarks-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  overflow-y: auto;
+
+  .max-width-wrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    flex-wrap: wrap;
+  }
+
+  .flex-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+}
