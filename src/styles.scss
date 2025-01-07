@@ -12,9 +12,29 @@ body {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 8.5rem; // desktop
+
+  @media (max-width: 1024px) {
+    font-size: 6.5rem; // tablets
+  }
+
+  @media (max-width: 768px) {
+    font-size: 5.5rem; // mobile
+  }
 }
 
 h2 {
   font-size: 40px;
+}
+
+.max-width-wrapper {
+  display: flex;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
 }

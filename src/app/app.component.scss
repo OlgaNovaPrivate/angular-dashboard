@@ -1,22 +1,19 @@
 .app-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   background-image: url("https://fastly.picsum.photos/id/450/1920/1080.jpg?hmac=xDeMorMomjhKEbocGtnP89w5iKpSX0h4gMpFaltwJWs");
-  //background-image: url("https://fastly.picsum.photos/id/810/1920/1080.jpg?hmac=XwyLUERtJhqKGHBRCt0wY213gXkfdxFKBhGrEqpRpsI");
-  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 .top-section {
-  //background-color: aquamarine;
   text-align: center;
-  padding: 100px 0;
+  padding: calc(2rem + 1vw) 0;
 
   h1 {
-    font-size: 120px;
     font-weight: bold;
     color: #f5f5f5;
     text-shadow: 0 1px 7px rgba(#000000, 0.1);
@@ -31,6 +28,8 @@
 }
 
 .content-section {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   min-height: 0;
 }
@@ -40,5 +39,16 @@
 
   app-tabs {
     margin: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .bookmarks-wrapper {
+    overflow-y: auto;
+    padding-bottom: calc(4rem + 1rem);
   }
 }
