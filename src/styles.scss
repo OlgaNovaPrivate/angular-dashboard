@@ -28,9 +28,8 @@ h2 {
 }
 
 .max-width-wrapper {
-  display: flex;
   max-width: 900px;
-  flex-wrap: wrap;
+  margin: auto;
 }
 
 @media (max-width: 768px) {
