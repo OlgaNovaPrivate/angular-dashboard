@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-notes',
+  selector: 'app-add-note',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './notes.component.html',
-  styleUrl: './notes.component.scss',
+  templateUrl: './add-note.component.html',
+  styleUrl: './add-note.component.scss',
 })
-export class NotesComponent {}
+export class AddNoteComponent {}
