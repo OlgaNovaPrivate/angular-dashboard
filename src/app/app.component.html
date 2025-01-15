@@ -4,8 +4,10 @@
     <h2>21 January 2024</h2>
   </div>
 
-  <div class="content-section">
-    <router-outlet> </router-outlet>
+  <!-- Binding to return value -->
+
+  <div class="content-section" [@routeAnim]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"> </router-outlet>
   </div>
 
   <div class="bottom-section">
