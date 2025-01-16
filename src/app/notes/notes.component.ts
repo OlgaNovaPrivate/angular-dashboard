@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -8,4 +8,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.scss',
 })
-export class NotesComponent {}
+export class NotesComponent implements OnInit {
+  constructor(private _router: Router) {}
+  ngOnInit() {}
+}

@@ -8,10 +8,9 @@ describe('BookmarkTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BookmarkTileComponent]
-    })
-    .compileComponents();
-    
+      imports: [BookmarkTileComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(BookmarkTileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
