@@ -8,10 +8,9 @@ describe('NoteCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoteCardComponent]
-    })
-    .compileComponents();
-    
+      imports: [NoteCardComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NoteCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
