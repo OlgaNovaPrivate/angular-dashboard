@@ -5,10 +5,15 @@ import { Note } from './note.model';
   providedIn: 'root',
 })
 export class NoteService {
-  notes: Note[] = [];
+  notes: Note[] = [
+    new Note('Test Title', 'Test Content'),
+    new Note('Test Title2', 'Test Content2'),
+  ];
+
   constructor() {}
 
   getNotes() {
+    console.log('getNotes called in service');
     return this.notes;
   }
 

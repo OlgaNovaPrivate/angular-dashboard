@@ -9,4 +9,5 @@ export const routes: Routes = [
   { path: 'todos', component: TodosComponent, data: { tabIndex: 1 } },
   { path: 'notes', component: NotesComponent, data: { tabIndex: 2 } },
   { path: 'notes/add', component: AddNoteComponent },
+  { path: '**', redirectTo: '/bookmarks' },
 ];

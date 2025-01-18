@@ -1,10 +1,7 @@
 <div class="notes-wrapper">
   <div class="max-width-wrapper">
     <div class="notes-list">
-      <div class="note-card">
-        <div class="note-card-title">Title</div>
-        <div class="note-card-content">Content</div>
-      </div>
+      <app-note-card *ngFor="let note of notes" [note]="note"></app-note-card>
     </div>
 
     <div class="btn-wrapper center">
