@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { Note } from '../shared/note.model';
 
 @Component({
   selector: 'app-note-card',
   standalone: true,
-  imports: [NgForOf],
+  imports: [NgForOf, NgIf],
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.scss',
 })
