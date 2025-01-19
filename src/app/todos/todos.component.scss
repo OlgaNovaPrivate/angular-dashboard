@@ -1,65 +1,9 @@
 .todos-wrapper {
-  display: flex;
-  justify-content: center;
+  height: 100%;
   overflow-y: auto;
 
   @media (max-width: 768px) {
     overflow-y: auto;
     padding: 0 2rem 7rem 2rem;
   }
-
-    .todo-item {
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      background: rgba(black, 0.5);
-      padding: 10px 12px;
-      margin-bottom: 15px;
-      border-radius: 25px;
-      cursor: pointer;
-
-      .todo-text {
-        color: rgba(white, 0.85);
-        transition: all .4s;
-      }
-
-      .check-box {
-        display: flex;
-        padding: 4px;
-        border-radius: 50%;
-        border: 2px solid rgba(white, 0.4);
-        margin-right: 15px;
-        font-size: 14px;
-        transition: all .4s;
-
-        i {
-          opacity: 0;
-        }
-      }
-
-      &:hover {
-        .todo-text {
-          color: white;
-        }
-        .check-box {
-          background: rgba(white, 0.4);
-          border-color: transparent;
-        }
-      }
-
-      &.completed {
-        .todo-text {
-          color: rgba(white, 0.8);
-        }
-
-        .check-box {
-          background: rgb(85, 207, 133);
-          border-color: transparent;
-
-          i {
-            opacity: 1;
-          }
-        }
-      }
-    }
 }
