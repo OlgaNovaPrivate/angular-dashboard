@@ -13,6 +13,4 @@ export class NoteCardComponent {
   @Input() note?: Note;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

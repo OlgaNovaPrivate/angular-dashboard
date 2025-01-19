@@ -1,7 +1,15 @@
 <div class="notes-wrapper">
   <div class="max-width-wrapper">
     <div class="notes-list">
-      <app-note-card *ngFor="let note of notes" [note]="note"></app-note-card>
+      <!--*ngFor directive is used to loop over a collection (notes).
+      How:
+      	let note of notes: This means “for each note in the notes array, do the following.”
+		    notes is an array defined in the component class (e.g., notes: Note[] = [];).
+		    Inside the loop, note represents the current item from the notes array.
+      -->
+      <a [routerLink]="[note.id]" *ngFor="let note of notes">
+        <app-note-card [note]="note"></app-note-card>
+      </a>
     </div>
 
     <div class="btn-wrapper center">
