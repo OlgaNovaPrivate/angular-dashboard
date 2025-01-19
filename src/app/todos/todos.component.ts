@@ -15,14 +15,13 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
 
-  constructor(private todoService: TodoService) {
-    console.log('TodoService constructor called');
-  }
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    console.log('Component Initialized');
     this.todos = this.todoService.getTodos();
-    console.log('Todos loaded in component:', this.todos); // todos are loaded
-    console.log('Todo data', this.todos);
+  }
+
+  toggleCompleted(todo: Todo) {
+    this.todoService.updateTodo(todo.id, { completed: !todo.completed });
   }
 }

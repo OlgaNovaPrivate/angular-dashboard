@@ -7,9 +7,7 @@ import { Todo } from '../todo-model/todo.model';
 export class TodoService {
   todos: Todo[] = [new Todo('This is a test!'), new Todo('This is a test!')];
 
-  constructor() {
-    this.todos[0].completed = true;
-  }
+  constructor() {}
 
   getTodos() {
     return this.todos;
@@ -23,11 +21,12 @@ export class TodoService {
     this.todos.push(todo);
   }
 
-  updateTodo(id: string) {
+  updateTodo(id: string, updatedTodoFields: Partial<Todo>) {
     const todo = this.getTodo(id);
     if (!todo) {
       throw new Error(`Todo with ID ${id} not found.`);
     }
+    Object.assign(todo, updatedTodoFields);
   }
 
   deleteTodo(id: string) {
