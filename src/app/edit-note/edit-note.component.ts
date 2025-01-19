@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
-import { NoteService } from '../shared/note.service';
-import { Note } from '../shared/note.model';
+import { NoteService } from '../shared/note/note-service/note.service';
+import { Note } from '../shared/note/note-model/note.model';
 
 /**
  * Visual Flow

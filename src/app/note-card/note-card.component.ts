@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
-import { Note } from '../shared/note.model';
+import { Note } from '../shared/note/note-model/note.model';
 
 @Component({
   selector: 'app-note-card',
