@@ -12,6 +12,12 @@ import { NgIf } from '@angular/common';
   templateUrl: './add-note.component.html',
   styleUrl: './add-note.component.scss',
 })
+
+/**
+ * defining component:
+ * class, that represents Angular component,
+ * handling the logic and interaction for a part of the application.
+ */
 export class AddNoteComponent {
   showValidationErrors?: boolean;
   constructor(
@@ -19,8 +25,12 @@ export class AddNoteComponent {
     private router: Router
   ) {}
 
+  /**
+   * class, that represents Angular component,
+   * handling the logic and interaction for a part of the application.
+   */
+
   onFormSubmit(form: NgForm): void {
-    // read about the fix
     console.log('Form is submitted', form);
 
     if (form.invalid) {
