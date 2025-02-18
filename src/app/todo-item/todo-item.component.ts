@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../shared/todo/todo-model/todo.model';
 
 @Component({
@@ -10,5 +10,19 @@ import { Todo } from '../shared/todo/todo-model/todo.model';
 })
 export class TodoItemComponent {
   @Input() todo?: Todo;
-  constructor() {}
+
+  @Output() editClick: EventEmitter<void> = new EventEmitter();
+  @Output() deleteClick: EventEmitter<void> = new EventEmitter();
+
+  constructor() {
+    console.log('THIS IS TODO', this.todo);
+  }
+
+  onEditClick() {
+    this.editClick.emit();
+  }
+
+  onDeleteClick() {
+    this.deleteClick.emit();
+  }
 }
