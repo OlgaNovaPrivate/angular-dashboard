@@ -39,3 +39,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.tile-icon {
+  display: flex;
+  justify-content: center;
+  width: 32px;
+  height: auto;
+
+}
