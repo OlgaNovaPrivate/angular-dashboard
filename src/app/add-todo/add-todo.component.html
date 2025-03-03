@@ -12,8 +12,10 @@
         required
         minlength="3" />
       <ng-container *ngIf="showValidationErrors && textField.invalid">
-        <p *ngIf="textField.errors?.['required']">Please enter a todo text</p>
-        <p *ngIf="textField.errors?.['minlength']">
+        <p class="warning" *ngIf="textField.errors?.['required']">
+          Please enter a todo text
+        </p>
+        <p class="warning" *ngIf="textField.errors?.['minlength']">
           A todo text must be at least 3 characters
         </p>
       </ng-container>
@@ -25,4 +27,3 @@
     </div>
   </form>
 </div>
-K
