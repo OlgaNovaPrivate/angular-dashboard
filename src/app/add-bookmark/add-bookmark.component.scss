@@ -1,0 +1,11 @@
+.add-bookmark-wrapper {
+  overflow: auto;
+  padding: 2rem;
+  max-height: 100%;
+  border-radius: 5px;
+
+
+  @media (max-width: 768px)  {
+    overflow-y: auto;
+  }
+}
