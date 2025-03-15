@@ -12,9 +12,9 @@
     padding-bottom: 6rem;
   }
 
-
   .flex-wrapper {
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
   }
 }

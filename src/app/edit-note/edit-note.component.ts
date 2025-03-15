@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
@@ -26,7 +26,7 @@ import { Note } from '../shared/note/note-model/note.model';
  * class, that represents Angular component,
  * handling the logic and interaction for a part of the application
  */
-export class EditNoteComponent {
+export class EditNoteComponent implements OnInit {
   /**
    * note property holds the Note object that will be edited.
    * It will be retrieved based on the id passed via the route

@@ -34,7 +34,6 @@
   color: rgba(white, .6);
   font-size: 14px;
   max-width: 100%;
-
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -43,7 +42,17 @@
 .tile-icon {
   display: flex;
   justify-content: center;
-  width: 32px;
-  height: auto;
+  align-items: center;
+  background: white;
+  width: 35px;
+  height: 35px;
 
+  &.fallback {
+    background: rgba(45, 48, 53, 0.7);
+    color: #f5f7f8;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
+
