@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../shared/todo/todo-model/todo.model';
+import { NotificationService } from '../shared/notification/notification-service/notification.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -14,7 +15,7 @@ export class TodoItemComponent {
   @Output() editClick: EventEmitter<void> = new EventEmitter();
   @Output() deleteClick: EventEmitter<void> = new EventEmitter();
 
-  constructor() {
+  constructor(private notificationService: NotificationService) {
     console.log('THIS IS TODO', this.todo);
   }
 
@@ -24,5 +25,6 @@ export class TodoItemComponent {
 
   onDeleteClick() {
     this.deleteClick.emit();
+    this.notificationService.show('Deleted todo!');
   }
 }
