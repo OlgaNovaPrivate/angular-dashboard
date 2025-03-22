@@ -9,13 +9,14 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { NotificationComponent } from './notification/notification.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterOutlet, TabsComponent],
+  imports: [RouterOutlet, TabsComponent, NotificationComponent],
   animations: [
     trigger('routeAnim', [
       transition(':increment', [

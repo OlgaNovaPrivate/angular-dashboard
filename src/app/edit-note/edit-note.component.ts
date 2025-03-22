@@ -4,6 +4,7 @@ import { NgIf } from '@angular/common';
 import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { NoteService } from '../shared/note/note-service/note.service';
 import { Note } from '../shared/note/note-model/note.model';
+import { NotificationService } from '../shared/notification/notification-service/notification.service';
 
 /**
  * Visual Flow
@@ -21,47 +22,15 @@ import { Note } from '../shared/note/note-model/note.model';
   templateUrl: './edit-note.component.html',
   styleUrl: './edit-note.component.scss',
 })
-
-/**
- * class, that represents Angular component,
- * handling the logic and interaction for a part of the application
- */
 export class EditNoteComponent implements OnInit {
-  /**
-   * note property holds the Note object that will be edited.
-   * It will be retrieved based on the id passed via the route
-   */
   note!: Note;
-
-  /**
-   * constructor runs when the component is created.
-   * here will be injected services needed by this component using Angular
-   */
   constructor(
-    /**
-     * ActivatedRoute is an Angular service that provides access to information
-     * about the route, such as parameters (id) or query strings.
-     *  Parameters like id are passed in the URL (e.g., /edit-note/123).
-     *  ActivatedRoute.paramMap ensures reading those parameters.
-     */
     private route: ActivatedRoute,
-    /**
-     * NoteService is a custom service where shared functionality
-     * like retrieving, adding, or updating notes is defined.
-     * The NoteService is where reusable logic is defined.
-     * The component calls the service’s getNote method to fetch data.
-     */
     private noteService: NoteService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
-  /**
-   * ngOnInit runs after the component is created, where properties
-   * or fetch data are initialized.
-   *  ngOnInit is where an initial data is fetch and set up for the component.
-   *  It is called once after the component is created.
-   *  The component handles missing id or notes gracefully by logging errors and stopping execution.
-   */
   ngOnInit(): void {
     //  this.route.paramMap.subscribe Subscribes to changes in the route’s parameters (like id)
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -89,6 +58,7 @@ export class EditNoteComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     // this method is triggered when the user submits the form
     this.noteService.updateNote(this.note.id, form.value);
+    this.notificationService.show('Updated note!');
     this.router
       .navigateByUrl('/notes')
       .then(() => {
@@ -103,6 +73,7 @@ export class EditNoteComponent implements OnInit {
 
   deleteNote() {
     this.noteService.deleteNote(this.note.id);
+    this.notificationService.show('Deleted note!');
     this.router
       .navigateByUrl('/notes')
       /**
