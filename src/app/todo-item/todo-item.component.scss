@@ -14,7 +14,7 @@
     transition: all .4s;
   }
 
-  .check-box {
+  .checkbox {
     display: flex;
     padding: 4px;
     border-radius: 50%;
@@ -34,7 +34,7 @@
   }
 
   &.completed {
-    .check-box {
+    .checkbox {
       background: rgb(85, 207, 133);
       border-color: transparent;
 
