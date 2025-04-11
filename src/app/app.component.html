@@ -1,4 +1,12 @@
 <div class="app-wrapper">
+  <div
+    class="bg-img"
+    [ngStyle]="{ 'background-image': 'url(' + bg + ')' }"
+    [@bgFadeAnim]></div>
+  <div class="btn change-bg" (click)="changeBgImage()" *ngIf="enableDynamicBg">
+    <i class="material-icons">refresh</i>
+  </div>
+
   <div class="top-section">
     <h1>21:00</h1>
     <h2>21 January 2024</h2>
