@@ -12,6 +12,14 @@ import {
 import { NotificationComponent } from './notification/notification.component';
 import { NgIf, NgStyle } from '@angular/common';
 
+const transitionStyles = style({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  opacity: 0,
+});
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,19 +31,7 @@ import { NgIf, NgStyle } from '@angular/common';
       transition(':increment', [
         style({ position: 'relative', overflow: 'hidden' }),
 
-        query(
-          ':enter, :leave',
-          [
-            style({
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              opacity: 0,
-            }),
-          ],
-          { optional: true }
-        ),
+        query(':enter, :leave', [transitionStyles], { optional: true }),
 
         group([
           query(
@@ -71,19 +67,7 @@ import { NgIf, NgStyle } from '@angular/common';
       transition(':decrement', [
         style({ position: 'relative', overflow: 'hidden' }),
 
-        query(
-          ':enter, :leave',
-          [
-            style({
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              opacity: 0,
-            }),
-          ],
-          { optional: true }
-        ),
+        query(':enter, :leave', [transitionStyles], { optional: true }),
 
         group([
           query(
@@ -117,31 +101,19 @@ import { NgIf, NgStyle } from '@angular/common';
       ]),
 
       transition('* => secondary', [
-        style({ position: 'relative', overflow: 'hidden' }),
+        style({ position: 'relative' }),
 
-        query(
-          ':enter, :leave',
-          [
-            style({
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              opacity: 0,
-            }),
-          ],
-          { optional: true }
-        ),
+        query(':enter, :leave', [transitionStyles], { optional: true }),
 
         group([
           query(
             ':leave',
             [
               animate(
-                '150ms ease-in',
+                '200ms ease-in',
                 style({
                   opacity: 0,
-                  transform: 'translateX(20px)',
+                  transform: 'scale(0.8)',
                 })
               ),
             ],
@@ -152,11 +124,53 @@ import { NgIf, NgStyle } from '@angular/common';
             [
               style({
                 opacity: 0,
-                transform: 'translateX(-20px)',
+                transform: 'scale(0.8)',
               }),
               animate(
-                '150ms ease-in',
-                style({ opacity: 1, transform: 'translateX(0)' })
+                '250ms 120ms ease-out',
+                style({ opacity: 1, transform: 'scale(1)' })
+              ),
+            ],
+            { optional: true }
+          ),
+        ]),
+      ]),
+
+      transition('secondary => *', [
+        style({
+          position: 'relative',
+        }),
+
+        query(':enter, :leave', [transitionStyles], { optional: true }),
+
+        group([
+          query(
+            ':leave',
+            [
+              animate(
+                '200ms ease-in',
+                style({
+                  opacity: 0,
+                  transform: 'scale(0.8)',
+                })
+              ),
+            ],
+            { optional: true }
+          ),
+
+          query(
+            ':enter',
+            [
+              style({
+                transform: 'scale(0.8)',
+                opacity: 0,
+              }),
+              animate(
+                '250ms 120ms ease-out',
+                style({
+                  opacity: 1,
+                  transform: 'scale(1)',
+                })
               ),
             ],
             { optional: true }
@@ -164,6 +178,8 @@ import { NgIf, NgStyle } from '@angular/common';
         ]),
       ]),
     ]),
+
+    // Background image transition animation
     trigger('bgFadeAnim', [
       transition(':enter', [
         style({ opacity: 0 }),
