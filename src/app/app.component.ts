@@ -10,7 +10,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { NotificationComponent } from './notification/notification.component';
-import { NgIf, NgStyle } from '@angular/common';
+import { AsyncPipe, DatePipe, NgIf, NgStyle } from '@angular/common';
+import { map, Observable, timer } from 'rxjs';
 
 const transitionStyles = style({
   position: 'absolute',
@@ -25,7 +26,15 @@ const transitionStyles = style({
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterOutlet, TabsComponent, NotificationComponent, NgStyle, NgIf],
+  imports: [
+    RouterOutlet,
+    TabsComponent,
+    NotificationComponent,
+    NgStyle,
+    NgIf,
+    DatePipe,
+    AsyncPipe,
+  ],
   animations: [
     trigger('routeAnim', [
       transition(':increment', [
@@ -196,16 +205,23 @@ export class AppComponent implements OnInit {
   // Feature flag (will be moved to an environment later) for background image switch:
   enableDynamicBg = false;
 
+  dateTime?: Observable<Date>;
+
+  ngOnInit() {
+    this.changeBgImage();
+    this.dateTime = timer(0, 1000).pipe(
+      map(() => {
+        return new Date();
+      })
+    );
+  }
+
   prepareRoute(outlet: RouterOutlet) {
     if (outlet.isActivated) {
       const tabIndex = outlet.activatedRouteData['tabIndex'];
       return tabIndex !== undefined ? tabIndex : 'secondary';
     }
     return 'secondary';
-  }
-
-  ngOnInit() {
-    this.changeBgImage();
   }
 
   changeBgImage(): void {

@@ -8,8 +8,8 @@
   </div>
 
   <div class="top-section">
-    <h1>21:00</h1>
-    <h2>21 January 2024</h2>
+    <h1>{{ dateTime | async | date: 'HH:mm' }}</h1>
+    <h2>{{ dateTime | async | date: 'd MMMM y' }}</h2>
   </div>
 
   <!-- Binding to return value -->
